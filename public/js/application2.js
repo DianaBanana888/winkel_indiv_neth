@@ -134,7 +134,7 @@ async function getWeatherInfo(position) {
   `;
   } else {
     document.getElementById('a1').innerHTML = `
-    To see the weather allow to know your location
+    To see the weather allow to know your location`;
   }
 }
 
