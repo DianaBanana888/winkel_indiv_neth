@@ -72,20 +72,19 @@ const isAuth = async (req, res, next) => {
 
 const isSameAuthor = async (req, res, next) => {
   const { authorId } = await Item.findOne({ _id: req.params.id });
+  var _req$session, _req$session$user;
   if (authorId) {
     // if (req.session?.user?.id === authorId.toString()) {
     //   next();
     // } else {
     //   res.send('Available only for the author');
     // }
-    var _req$session, _req$session$user;
 
     if (((_req$session = req.session) === null || _req$session === void 0 ? void 0 : (_req$session$user = _req$session.user) === null || _req$session$user === void 0 ? void 0 : _req$session$user.id) === authorId.toString()) {
       next();
     } else {
       res.send('Available only for the author');
     }
-
   }
 };
 

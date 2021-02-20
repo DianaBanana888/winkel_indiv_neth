@@ -86,17 +86,20 @@ function openModalForm(type = null, title = null, name = null) {
   if (name === 'login') modalContent.insertAdjacentHTML('beforeend', formLogin);
 
   modalContent.addEventListener('submit', async (event) => {
+    var _event$target, _event$target$login, _event$target2, _event$target2$status;
     event.preventDefault();
     event.stopPropagation();
+    // const data = {
+    // name: event.target?.login?.value,
+    // email: event.target.email.value,
+    // password: event.target.password.value,
+    // status: event.target?.status?.value,
+    // }
     const data = {
-      // name: event.target?.login?.value,
-      // email: event.target.email.value,
-      // password: event.target.password.value,
-      // status: event.target?.status?.value,
-      name: event.target.login.value,
+      name: (_event$target = event.target) === null || _event$target === void 0 ? void 0 : (_event$target$login = _event$target.login) === null || _event$target$login === void 0 ? void 0 : _event$target$login.value,
       email: event.target.email.value,
       password: event.target.password.value,
-      status: event.target.status.value,
+      status: (_event$target2 = event.target) === null || _event$target2 === void 0 ? void 0 : (_event$target2$status = _event$target2.status) === null || _event$target2$status === void 0 ? void 0 : _event$target2$status.value
     };
 
     const response = await fetch(event.target.action, {
