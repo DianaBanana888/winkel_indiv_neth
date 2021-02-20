@@ -1,32 +1,34 @@
 // edit page
 const itemEditForm = document.forms.editItem;
 
-itemEditForm?.addEventListener('submit', async (event) => {
-  event.preventDefault();
-  const data = {
-    article: event.target.article.value,
-    name: event.target.name.value,
-    description: event.target.description.value,
-    price: event.target.price.value,
-    quantity: event.target.quantity.value,
-    foto: event.target.foto.value,
-  };
+if (itemEditForm) {
+  itemEditForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const data = {
+      article: event.target.article.value,
+      name: event.target.name.value,
+      description: event.target.description.value,
+      price: event.target.price.value,
+      quantity: event.target.quantity.value,
+      foto: event.target.foto.value,
+    };
 
-  const response = await fetch(event.target.action, {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
+    const response = await fetch(event.target.action, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+    const result = await response.json();
+
+    if (result.message === 'OK') {
+      window.location.href = '/myAccount';
+    } else {
+      alert('Het spijt me!');
+    }
   });
-  const result = await response.json();
-
-  if (result.message === 'OK') {
-    window.location.href = '/myAccount';
-  } else {
-    alert('Het spijt me!');
-  }
-});
+}
 
 const deleteButtons = document.querySelectorAll('.button.delete-button');
 deleteButtons.forEach((deleteButton) => {
