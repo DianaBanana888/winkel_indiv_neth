@@ -1,0 +1,35 @@
+{
+  "main": "app.js",
+  "engines": {
+    "node": "10.x"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "dev": "npx kill-port 3000; npx nodemon app.js --ignore sessions",
+    "debug": "node --no-lazy --inspect-brk app.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "connect-mongo": "^3.2.0",
+    "dotenv": "^8.2.0",
+    "env": "^0.0.2",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "http-errors": "^1.7.2",
+    "mongoose": "^5.11.15",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "registry-auth-token": "^4.2.1",
+    "registry-url": "^5.1.0",
+    "ws": "^7.4.2"
+  }
+}

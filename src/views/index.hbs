@@ -1,0 +1,33 @@
+<h4>Hallo, beste gebruiker!</h4>
+<h5>Om te kunnen bestellen dient u als Buyer geregistreerd zijn.</h5>
+<h5> Om een item toe te voegen, moet u geregistreerd zijn als Seller</h5>
+
+<div class="items">
+  {{#each items}}
+  <div class="product-item" id="{{id}}">
+    <h4>{{name}}</h4>
+    <div class="product-item--foto" style="background: url( {{foto}});"></div>
+    <div class="product-list">
+      <p class="price">prijs: {{price}} €</p>
+      <p class="quantity">max aantal: {{quantity}} stukjes</p>
+      <br>
+
+      {{#if ../nameBuyer}}
+      <p class="input-group quantity_goods"> aantal:
+        <input style="text-align: center" type="number" step="1" min="1" max="{{quantity}}" name="quantity" value="1"
+          title="Qty">
+      </p>
+      {{/if}}
+
+      <p>artikel: {{article}}</p>
+      <p>omschrijving: {{description}}</p>
+
+      {{#if ../nameBuyer}}
+      input id="{{id}}" type="submit" value="Voeg toe aan winkelwagen" class="button add-shopping-card">
+
+      {{/if}}
+
+    </div>
+  </div>
+  {{/each}}
+</div>

@@ -1,0 +1,29 @@
+<h2>Goede dag, {{username}}!</h2>
+<h3>Wij heten u van harte welkom!</h3>
+
+<div class="items shopping-card">
+  {{#each ItemsArray}}
+  <div class="product-item" id="{{itemInfo._id}}">
+    <h4>{{itemInfo.name}}</h4>
+    <div class="product-list">
+      <p class="price">prijs: {{itemInfo.price}} €</p>
+      <div class="product-item--foto" style="background: url( {{itemInfo.foto}});"></div>
+
+      <p class="input-group quantity_goods"> aantal:
+        <input style="text-align: center" type="number" step="1" min="1" max="{{itemInfo.quantity}}" name="quantity"
+          value="{{wantedQuantity}}" title="Qty">
+      </p>
+
+      <input type="submit" value="Betalen" class="button pay-one">
+
+      <input id="{{itemInfo._id}}" type="submit" value="delete" class="button remove-button">
+
+    </div>
+  </div>
+  {{/each}}
+
+</div>
+<br>
+<br>
+<br>
+<input type="submit" value="Alles Betalen" class="button pay-all">

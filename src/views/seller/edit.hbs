@@ -1,0 +1,56 @@
+<h5>{{username}}, breng wijzigingen aan in uw item</h5>
+
+{{#if errors}}
+<span>Something went wrong:</span>
+<ul class="error-list pad-b-2">
+  {{#each errors as |error|}}
+  <li class="error-item">{{error}}</li>
+  {{/each}}
+</ul>
+{{/if}}
+
+{{#if item}}
+<h3 class="title-form">Item bewerken</h3>
+{{!-- action="/{{this.id}}" --}}
+<form method="post" name="editItem" action="/myAccount/{{item.id}}" class="input-field form-edit form-auth col s12">
+  <input type="hidden" name="_method" value="put">
+
+  <div class="input-field col s12">
+    <p>artikel: </p>
+    {{!-- <label for="article-input">artikel: </label>
+    <input class="article" id="article-input" maxlength="20" name="article" type="text" value="{{item.article}}"> --}}
+    <input name="article" type="text" class="article" maxlength="20" value="{{item.article}}" required>
+  </div>
+
+  <div class="input-field col s12">
+    <p>naam: </p>
+    <input name="name" type="text" class="name" maxlength="30" value="{{item.name}}" required>
+  </div>
+
+  <div class=" input-field col s12">
+    <p>omschrijving: </p>
+    <input name="description" type="text" class="description" maxlength="300" value="{{item.description}}" required>
+  </div>
+
+  <div class="input-field col s12">
+    <p>prijs: </p>
+    <input name="price" type="number" class="price" value="{{item.price}}" min="1" max="999" required>
+  </div>
+
+  <div class="input-field col s12">
+    <p>aantal: </p>
+    <input name="quantity" type="number" class="quantity" value="{{item.quantity}}" min="1" max="999" required>
+  </div>
+
+  <div class="input-field col s12">
+    <p>foto: </p>
+    <img src="{{item.foto}}">
+    <input name="foto" value="{{item.foto}}" type="text" alt="Submit">
+  </div>
+
+
+  <div class="form-error"></div>
+  <button type="submit" class="waves-effect answerBtn form-button">Bewerk</button>
+
+</form>
+{{/if}}

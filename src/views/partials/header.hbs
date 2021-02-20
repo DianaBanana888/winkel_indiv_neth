@@ -1,0 +1,43 @@
+<nav class="nav">
+  <div class="nav-wrapper">
+    <button class="nav-button-mobile">
+      <span class="material-icons">
+        menu
+      </span>
+    </button>
+    <div class="col s12">
+      <a href="/" class="brand-logo">WINKELCENTRUM</a>
+      <p class="api-block" id="a1"></p>
+      <ul id="nav-user" class="right hide-on-med-and-down">
+
+        {{!-- <li class="api-block" id="a1">
+
+        </li> --}}
+
+        {{#if username}}
+        <li><a href="/">Home</a></li>
+        <li>{{username}}</li>
+
+        {{#if nameBuyer}}
+        <li><a href="/shoppingCard" class="winkel-wagen">Winkel Wagen</a></li>
+        {{/if}}
+
+        {{#if nameSeller}}
+        <li><a class="create-item">Nieuw Item</a></li>
+        <li><a href="/myAccount" class="my-office">Mijn account </a></li>
+        {{/if}}
+
+        <li><a href="/auth/logout">
+            LogOut
+            <span class="material-icons">logout</span>
+          </a></li>
+        {{else}}
+        <li><a href="/">Home</a></li>
+        <li><a class="register-user">Registeer</a></li>
+        <li><a class="input-user">LogIn</a></li>
+
+        {{/if}}
+      </ul>
+    </div>
+  </div>
+</nav>

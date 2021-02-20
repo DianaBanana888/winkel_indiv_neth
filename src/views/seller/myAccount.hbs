@@ -1,0 +1,30 @@
+<h4>Hallo, {{username}}!</h4>
+<h5>Uw goederen. Kan worden wijzigen of verwijderen.</h5>
+
+<div class="items">
+  {{#each itemsAuthor}}
+  <div class="product-item">
+    <h4>{{name}}</h4>
+    <div class="product-item--foto" style="background: url( {{foto}});"></div>
+
+    <div class="product-list">
+      <p class="price">prijs: {{price}} €</p>
+      <p class="quantity">max aantal: {{quantity}} stukjes</p>
+      <br>
+
+      <p>artikel: {{article}}</p>
+      <p>omschrijving: {{description}}</p>
+
+      <a href="/myAccount/{{id}}/edit" id="{{id}}" class="button edit-button">Wijzigen</a>
+
+      {{!-- <a href="/myAccount/{{this.id}}" id="{{this.id}}" class="button delete-button">Verwijderen</a> --}}
+      <br>
+      <br>
+      {{!-- <form id="{{id}}"> --}}
+        <input id="{{id}}" type="submit" value="delete" class="button delete-button">
+        {{!--
+      </form> --}}
+    </div>
+  </div>
+  {{/each}}
+</div>
