@@ -88,12 +88,20 @@ function openModalForm(type = null, title = null, name = null) {
   modalContent.addEventListener('submit', async (event) => {
     event.preventDefault();
     event.stopPropagation();
-    const data = {
-      name: event.target?.login?.value,
-      email: event.target.email.value,
-      password: event.target.password.value,
-      status: event.target?.status?.value,
-    };
+    let data = {};
+    if (event.target.login.value) {
+      data = {
+        name: event.target.login.value,
+        email: event.target.email.value,
+        password: event.target.password.value,
+        status: event.target.status.value,
+      };
+    } else {
+      data = {
+        email: event.target.email.value,
+        password: event.target.password.value,
+      };
+    }
 
     const response = await fetch(event.target.action, {
       method: 'POST',
