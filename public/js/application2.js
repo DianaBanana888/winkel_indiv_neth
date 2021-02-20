@@ -134,7 +134,7 @@ async function getWeatherInfo(position) {
   `;
   } else {
     document.getElementById('a1').innerHTML = `
-    To see the weather allow to know your location`;
+  Have a nice day!`;
   }
 }
 
@@ -142,7 +142,9 @@ function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(getWeatherInfo);
   } else {
-    alert('Geolocation is not supported by this browser.');
+    // alert('Geolocation is not supported by this browser.');
+    document.getElementById('a1').innerHTML = `
+    To see the weather allow to know your location`;
   }
 }
 
