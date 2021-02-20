@@ -18,7 +18,7 @@ router.post('/register', isAlreadyRegistered, isCorrectInput,
       email,
       status,
     });
-    user.save();
+    await user.save();
     req.session.user = { id: user.id, name: user.name };
     return res.json({ message: 'OK' });
   });

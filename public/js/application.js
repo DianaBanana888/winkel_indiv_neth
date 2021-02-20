@@ -89,7 +89,7 @@ function openModalForm(type = null, title = null, name = null) {
     event.preventDefault();
     event.stopPropagation();
     let data = {};
-    if (event.target.login.value) {
+    if (event.target.login && event.target.login.value) {
       data = {
         name: event.target.login.value,
         email: event.target.email.value,
