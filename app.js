@@ -4,8 +4,9 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const hbs = require('hbs');
-const session = require('express-session');
-const { connectDb, sessionStore } = require('./models/db.js');
+// const session = require('express-session');
+// const { connectDb, sessionStore } = require('./models/db.js');
+const { connectDb } = require('./models/db.js');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -32,22 +33,22 @@ app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'));
 
-app.use(
-  session({
-    name: 'sid',
-    secret: process.env.SESSION_SECRET,
-    store: sessionStore,
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      secure: process.env.NODE_ENV === 'production',
-      maxAge: 1000 * 60 * 60 * 24 * 365,
-    },
-  }),
-);
-// app.use(require('express-session')({
-//   secret: 'keyboard cat', resave: true, saveUninitialized: true
-// }));
+// app.use(
+//   session({
+//     name: 'sid',
+//     secret: process.env.SESSION_SECRET,
+//     store: sessionStore,
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       secure: process.env.NODE_ENV === 'production',
+//       maxAge: 1000 * 60 * 60 * 24 * 365,
+//     },
+//   }),
+// );
+app.use(require('express-session')({
+  secret: 'keyboard cat', resave: true, saveUninitialized: true,
+}));
 
 app.use(logger('dev'));
 app.use(express.json());
