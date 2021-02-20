@@ -118,8 +118,8 @@ async function getWeatherInfo(position) {
     body: JSON.stringify(data),
   });
   const result = await response.json();
-
-  document.getElementById('a1').innerHTML = `
+  if (result) {
+    document.getElementById('a1').innerHTML = `
   Today in ${result.city}:
  
   Temperature ${result.temp},
@@ -132,6 +132,10 @@ async function getWeatherInfo(position) {
 
   Humidity ${result.humidity}
   `;
+  } else {
+    document.getElementById('a1').innerHTML = `
+    To see the weather allow to know your location
+  }
 }
 
 function getLocation() {

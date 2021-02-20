@@ -4,8 +4,8 @@ const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const hbs = require('hbs');
-// const session = require('express-session');
 // const { connectDb, sessionStore } = require('./models/db.js');
+const session = require('express-session');
 const { connectDb } = require('./models/db.js');
 
 const app = express();
@@ -32,7 +32,7 @@ const { isLocalName, isNotFound } = require('./middleware/auth');
 app.set('views', path.join(__dirname, 'src', 'views'));
 app.set('view engine', 'hbs');
 hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'));
-
+// попытка 1 - работает на локалке, не работает на хероку
 // app.use(
 //   session({
 //     name: 'sid',
@@ -46,8 +46,23 @@ hbs.registerPartials(path.join(__dirname, 'src', 'views', 'partials'));
 //     },
 //   }),
 // );
-app.use(require('express-session')({
-  secret: 'keyboard cat', resave: true, saveUninitialized: true,
+// попытка 2
+// app.use(
+//   session({
+//     secret: 'keyboard cat',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {
+//       secure: false,
+//       httpOnly: true,
+//     },
+//   })
+// );
+// попытка 3 - работает на локалке, работает на хероку
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true,
 }));
 
 app.use(logger('dev'));
