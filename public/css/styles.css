@@ -28,8 +28,8 @@ body {
   }
 
   .api-block {
-    display: inline-table;
-    margin: 0 230px;
+    display: block;
+    margin: 0 ;
   }
 
 /* для карточек товара*/
@@ -130,11 +130,15 @@ button.nav-button-mobile {
   justify-content: center;
   height: 40px;
   width: 40px;
-  position: absolute;
   right: 20px;
   top: 9px;
   cursor: pointer; 
   display: none;
+}
+
+.col.right-header.s12 {
+  display: flex;
+  justify-content: space-between;
 }
 
 nav {
@@ -578,7 +582,26 @@ input.form-deck--add-answer {
   transform: translateX(-20px);
 }
 
-
+@media only screen and (max-width: 1580px) {
+  .container {
+    width: 90%;
+  }
+  .top-window--title {
+    font-size: 38px;
+  }
+  .name-block--hello {
+    font-size: 20px;
+    padding: 30px 20px;
+    line-height: 1.5;
+    font-weight: 200;
+  }
+  .row.deck {
+    margin-top: 350px;
+  }
+  .modal-wrapper {
+    width: 70%;
+  }
+}
 
 
 
@@ -611,7 +634,7 @@ input.form-deck--add-answer {
     margin-top: 350px;
   }
   .api-block {
-    display: table-cell;
+    display: block;
     margin: 0 
   }
   .deck {
@@ -640,7 +663,7 @@ input.form-deck--add-answer {
     margin-top: 80px;
   }
   .api-block {
-    display: table-cell;
+    display: block;
     margin: 0 
   }
   .top-window--title {
@@ -666,7 +689,7 @@ input.form-deck--add-answer {
     margin-top: 30px;
   }
   .api-block {
-    display: inline-table;
+    display: block;
     margin: 0 
   }
   .top-window--title {
@@ -717,7 +740,6 @@ input.form-deck--add-answer {
     z-index: 11;
   }
   ul#nav-user {
-    position: absolute;
     height: 100vh;
     flex-direction: column;
     right: -300px;
